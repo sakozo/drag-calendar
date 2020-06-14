@@ -4,3 +4,102 @@
 
 <%= link_to 'Show', @calendar %> |
 <%= link_to 'Back', calendars_path %>
+
+<br>
+
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Selectable - Serialize</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+  <%
+=begin%>
+ <link rel="stylesheet" href="/demos/style.css" /> 
+<%
+=end%>
+  <style>
+  #feedback { font-size: 1.4em; }
+  #selectable .ui-selecting { background: #FECA40; }
+  #selectable .ui-selected { background: #F39814; color: white; }
+  #selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #selectable li { margin: 0px; padding: 0.4em; font-size: 1em; height: 4.0px; }
+  </style>
+  <script>
+  $(function() {
+    $( "#selectable" ).selectable({
+      stop: function() {
+        var result = $( "#select-result" ).empty();
+        $( ".ui-selected", this ).each(function() {
+          var index = $( "#selectable li" ).index( this );
+          result.append( " #" + ( index + 1 ) );
+        });
+
+        //ここで選択箇所の色を上書き、他を選択しても消えないようにする
+        //このタイミングでどの項目で塗りつぶしたか（勉強・リフレッシュなど）の分岐で色づけ＋DB保存すると簡単かな
+        //選択項目と同じ要領で合計時間を直後に右側に表示
+        console.log('選択終了')
+      }
+    });
+  });
+
+
+  </script>
+</head>
+<body>
+<p id="feedback">
+<span>選択項目:</span> <span id="select-result">無し</span>.
+</p>
+<body>
+<ol id="selectable">
+  <li class="ui-widget-content">6:00</li>
+  <li class="ui-widget-content">6:15</li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+  <li class="ui-widget-content"></li>
+</ol>
