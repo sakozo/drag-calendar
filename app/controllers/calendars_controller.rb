@@ -19,6 +19,7 @@ class CalendarsController < ApplicationController
 
   # GET /calendars/1/edit
   def edit
+    
   end
 
   # POST /calendars
