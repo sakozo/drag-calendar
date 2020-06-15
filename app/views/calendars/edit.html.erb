@@ -34,7 +34,7 @@
 
   </style>
   <script>
-  var color;
+  var color = 0;
 
   $(function() {
     $( "#selectable" ).selectable({
@@ -48,8 +48,13 @@
         //ここで選択箇所の色を上書き、他を選択しても消えないようにする
         //このタイミングでどの項目で塗りつぶしたか（勉強・リフレッシュなど）の分岐で色づけ＋DB保存すると簡単かな
         //選択項目と同じ要領で合計時間を直後に右側に表示
-
-          $( ".ui-selected", this ).css('background-color','blue');
+      if(color == 0){
+        $( ".ui-selected", this ).css('background-color','red');
+      }else if(color == 1){
+        $( ".ui-selected", this ).css('background-color','blue');
+      }else if(color == 2){
+        $( ".ui-selected", this ).css('background-color','green');
+      }
         
         console.log('選択終了')
       }
