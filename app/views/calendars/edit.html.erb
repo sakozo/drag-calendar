@@ -34,6 +34,8 @@
 
   </style>
   <script>
+  var color = 0;
+
   $(function() {
     $( "#selectable" ).selectable({
       stop: function() {
@@ -46,21 +48,51 @@
         //ここで選択箇所の色を上書き、他を選択しても消えないようにする
         //このタイミングでどの項目で塗りつぶしたか（勉強・リフレッシュなど）の分岐で色づけ＋DB保存すると簡単かな
         //選択項目と同じ要領で合計時間を直後に右側に表示
+      if(color == 0){
+        $( ".ui-selected", this ).css('background-color','red');
+      }else if(color == 1){
         $( ".ui-selected", this ).css('background-color','blue');
+      }else if(color == 2){
+        $( ".ui-selected", this ).css('background-color','green');
+      }
         
         console.log('選択終了')
       }
     });
 
+  $('#reset').on("click", function(){
+      $( ".ui-selectee").css('background-color','#fff');
+  });
 
+  $('#red').on("click", function(){
+    color = "0";
+    //alert(color);
+  });
+  $('#blue').on("click", function(){
+    color = "1";
+    //alert(color);
+  });
+  $('#green').on("click", function(){
+    color = "2";
+    //alert(color);
+  });
 
   });
+
   </script>
 </head>
 <body>
 http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css
 <br>
 <button id = "reset">リセット</button>
+
+<br>
+<button id = "red">赤</button>
+<br>
+<button id = "blue">青</button>
+<br>
+<button id = "green">緑</button>
+
 <p id="feedback">
 <span>選択項目:</span> <span id="select-result">無し</span>.
 </p>
