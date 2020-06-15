@@ -52,15 +52,29 @@
       }
     });
 
+  $('#reset').on("click", function(){
+      $( ".ui-selectee").css('background-color','#fff');
+  });
+
+  
 
 
   });
+
   </script>
 </head>
 <body>
 http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css
 <br>
 <button id = "reset">リセット</button>
+
+<br>
+<button id = "red">赤</button>
+<br>
+<button id = "blue">青</button>
+<br>
+<button id = "green">緑</button>
+
 <p id="feedback">
 <span>選択項目:</span> <span id="select-result">無し</span>.
 </p>
