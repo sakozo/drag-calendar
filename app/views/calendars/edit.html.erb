@@ -45,6 +45,18 @@
           result.append( " #" + ( index + 1 ) );
         });
 
+        var result_show = $( "#result-show" ).empty();
+        var red_count = 0;
+        var blue_count = 0;
+        var green_count = 0;
+        $(".ui-selectee").each(function(index, value){
+          if($(value).attr("class").includes("time_0")){red_count = red_count + 1}
+          else if ($(value).attr("class").includes("time_1")){blue_count = blue_count + 1}
+          else if ($(value).attr("class").includes("time_2")){green_count = green_count + 1}
+          })
+          result_show.append( "red:"+ red_count + "blue:" + blue_count + "green:" + green_count );
+        //});
+
         //ここで選択箇所の色を上書き、他を選択しても消えないようにする
         //このタイミングでどの項目で塗りつぶしたか（勉強・リフレッシュなど）の分岐で色づけ＋DB保存すると簡単かな
         //選択項目と同じ要領で合計時間を直後に右側に表示
@@ -92,6 +104,9 @@
 
   });
 
+
+
+
   </script>
 </head>
 <body>
@@ -109,6 +124,8 @@ http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css
 <p id="feedback">
 <span>選択項目:</span> <span id="select-result">無し</span>.
 </p>
+
+<div id = "result-show"></div>
 <body>
 <ol id="selectable">
   <li class="ui-widget-content">6:00</li>
