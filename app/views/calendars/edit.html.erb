@@ -48,12 +48,25 @@
         //ここで選択箇所の色を上書き、他を選択しても消えないようにする
         //このタイミングでどの項目で塗りつぶしたか（勉強・リフレッシュなど）の分岐で色づけ＋DB保存すると簡単かな
         //選択項目と同じ要領で合計時間を直後に右側に表示
+        //TODO:メソッド切り出しで処理を共通化
       if(color == 0){
         $( ".ui-selected", this ).css('background-color','red');
+        $( ".ui-selected", this ).removeClass(function(index, className) {
+            return (className.match(/\btime_\S+/g) || []).join(' ');
+        });
+        $( ".ui-selected", this ).addClass('time_0');
       }else if(color == 1){
         $( ".ui-selected", this ).css('background-color','blue');
+        $( ".ui-selected", this ).removeClass(function(index, className) {
+            return (className.match(/\btime_\S+/g) || []).join(' ');
+        });
+        $( ".ui-selected", this ).addClass('time_1');
       }else if(color == 2){
         $( ".ui-selected", this ).css('background-color','green');
+        $( ".ui-selected", this ).removeClass(function(index, className) {
+            return (className.match(/\btime_\S+/g) || []).join(' ');
+        });
+        $( ".ui-selected", this ).addClass('time_2');
       }
         
         console.log('選択終了')
