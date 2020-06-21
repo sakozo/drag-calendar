@@ -19,7 +19,7 @@ class CalendarsController < ApplicationController
 
   # GET /calendars/1/edit
   def edit
-    
+    @record = Record.new
   end
 
   # POST /calendars

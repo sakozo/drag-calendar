@@ -72,9 +72,18 @@
       var blue_count = 0;
       var green_count = 0;
       $(".ui-selectee").each(function(index, value){
-        if($(value).attr("class").includes("time_0")){red_count = red_count + 1}
-        else if ($(value).attr("class").includes("time_1")){blue_count = blue_count + 1}
-        else if ($(value).attr("class").includes("time_2")){green_count = green_count + 1}
+        if($(value).attr("class").includes("time_0")){
+          red_count = red_count + 1;
+          $(".red_record").val(red_count/4);
+          }
+        else if ($(value).attr("class").includes("time_1")){
+          blue_count = blue_count + 1;
+          $(".blue_record").val(blue_count/4);
+          }
+        else if ($(value).attr("class").includes("time_2")){
+          green_count = green_count + 1;
+          $(".green_record").val(green_count/4);
+          }
         })
         result_show.append( "red:"+ red_count + "blue:" + blue_count + "green:" + green_count );
       //});
@@ -118,6 +127,15 @@ http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css
 <button id = "blue">青</button>
 <br>
 <button id = "green">緑</button>
+<br>
+<%= form_for @record do |form| %>
+  <div class="input_time">
+  <%= form.text_field :time, class: "red_record", placeholder: "3.5", type: "number", min:"0" %>時間</br>
+  <%= form.text_field :time, class: "blue_record", placeholder: "3.5", type: "number", min:"0" %>時間</br>
+  <%= form.text_field :time, class: "green_record", placeholder: "3.5", type: "number", min:"0" %>時間</br>
+  </div>
+  <div ><%= form.submit "記録する", class: "submit_button"%></div>
+<% end %>
 
 <p id="feedback">
 <span>選択項目:</span> <span id="select-result">無し</span>.
